@@ -1,12 +1,13 @@
+import logging
 import time
 
 from selenium.webdriver.common.by import By
-from selenium.webdriver.support import expected_conditions
-
+from utilities.utils import Utils
 from base.base_driver import BaseDriver
 
 
 class ResultPage(BaseDriver):
+    log = Utils.custom_logger(loglevel=logging.INFO)
     def __init__(self, driver):
         super().__init__(driver)
         self.driver = driver
@@ -31,15 +32,18 @@ class ResultPage(BaseDriver):
     def filter_flights(self, num_of_stops):
         if num_of_stops == '1 Stop':
             self.get_filter_by_1_stop_icon().click()
+            self.log.info("Selected flight with 1 stop")
             time.sleep(2)
         elif num_of_stops == '2 Stops':
             self.get_filter_by_2_stop_icon().click()
+            self.log.info("Selected flight with 2 stops")
             time.sleep(2)
         elif num_of_stops == '3 Stops':
             self.get_filter_by_3_stop_icon().click()
+            self.log.info("Selected flight with 3 stops")
             time.sleep(2)
         else:
-            print("Please enter valid option")
+            self.log.info("Please enter valid option")
 
 
 

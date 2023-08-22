@@ -1,5 +1,5 @@
 import time
-
+import logging
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions
 from selenium.webdriver.support.wait import WebDriverWait
@@ -8,10 +8,6 @@ from selenium.webdriver.support.wait import WebDriverWait
 class BaseDriver:
     def __init__(self, driver):
         self.driver = driver
-
-    '''def handle_alert(self):
-        alert = self.driver.switch_to.alert
-        alert.dismiss()'''
 
     def scroll_down(self):
         """A method for scrolling the page."""
