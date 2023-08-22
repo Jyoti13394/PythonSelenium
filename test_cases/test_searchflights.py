@@ -1,5 +1,6 @@
 import time
 import pytest
+import softest as softest
 from selenium.webdriver.common.by import By
 
 from pages.search_flights_results_page import ResultPage
@@ -8,7 +9,7 @@ from utilities.utils import Utils
 
 
 @pytest.mark.usefixtures("setup")
-class TestSearchAndVerifyFilter:
+class TestSearchAndVerifyFilter(softest.TestCase):
 
     @pytest.fixture(autouse=True)
     def class_setup(self):
@@ -17,16 +18,15 @@ class TestSearchAndVerifyFilter:
         self.ut = Utils()
 
     def test_search_flights(self):
-        self.lp.searchFlights('New Delhi', 'New York', '22/08/2023')
+        self.lp.searchFlights('New Delhi', 'New York', '24/08/2023')
         self.lp.scroll_down()
         self.rp.filter_flights('1 Stop')
         all_stops1 = self.rp.get_flight_filter_result()
         self.ut.assrtListItemText(all_stops1, "1 Stop")
-'''
+
     def test_search_flights_2(self):
-        self.lp.searchFlights('New Delhi', 'New York', '22/08/2023')
+        self.lp.searchFlights('New Delhi', 'New York', '26/08/2023')
         self.lp.scroll_down()
-        self.rp.filter_flights('2 Stop')
+        self.rp.filter_flights('2 Stops')
         all_stops1 = self.rp.get_flight_filter_result()
         self.ut.assrtListItemText(all_stops1, "2 Stops ")
-        '''
