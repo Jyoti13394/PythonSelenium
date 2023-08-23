@@ -23,7 +23,7 @@ class Utils(softest.TestCase):
         # set format
         formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s', datefmt='%m/%d/%Y %I:%M:%S %p')
         # create console handler or file handler for log messages
-        fh = logging.FileHandler("automation.log")
+        fh = logging.FileHandler("automation.log", mode='w')
         # add format to logger
         fh.setFormatter(formatter)
         # add handler to logger

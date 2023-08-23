@@ -8,6 +8,7 @@ from base.base_driver import BaseDriver
 
 class ResultPage(BaseDriver):
     log = Utils.custom_logger(loglevel=logging.INFO)
+
     def __init__(self, driver):
         super().__init__(driver)
         self.driver = driver
@@ -44,7 +45,3 @@ class ResultPage(BaseDriver):
             time.sleep(2)
         else:
             self.log.info("Please enter valid option")
-
-
-
-
